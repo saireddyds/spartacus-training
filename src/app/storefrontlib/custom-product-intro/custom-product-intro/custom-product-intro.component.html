@@ -1,2 +1,2 @@
-<p>custom-product-intro works!</p>
-<div *ngIf="product$ | async as product">{{ product.name }}</div>
+<h2 *ngIf="product$ | async as product">{{ product.name }}</h2>
+<h2 *ngIf="getProduct$ | async as getproduct">{{ getproduct.name }}</h2>
