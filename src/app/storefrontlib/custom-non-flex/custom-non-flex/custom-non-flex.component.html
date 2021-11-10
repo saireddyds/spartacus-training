@@ -1,2 +1,6 @@
 <p>custom-non-flex works!</p>
 <ng-container *ngIf="data$ | async as data">{{ data.media.code }}</ng-container>
+<ng-container *ngIf="componentData$ | async as componentData">
+  <cx-media [container]="componentData.media"></cx-media>
+</ng-container>
+
