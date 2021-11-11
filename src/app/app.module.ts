@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { SpartacusModule } from './spartacus/spartacus.module';
 import { OutletModule } from './storefrontlib/outlets/outlet.module';
 import { StorefrontlibModule } from './storefrontlib/storefrontlib.module';
-/*import { CustomLoginModule } from './storefrontlib/custom-login/custom-login.module';*/
+import { provideConfig } from "@spartacus/core";
+import { customLayoutConfig } from "./config/custom-layout.config";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { StorefrontlibModule } from './storefrontlib/storefrontlib.module';
         SpartacusModule,
         StorefrontlibModule,
     ],
-  providers: [],
+  providers: [
+    provideConfig(customLayoutConfig)
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
