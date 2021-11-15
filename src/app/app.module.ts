@@ -8,14 +8,33 @@ import { AppComponent } from './app.component';
 import { SpartacusModule } from './spartacus/spartacus.module';
 import { OutletModule } from './storefrontlib/outlets/outlet.module';
 import { StorefrontlibModule } from './storefrontlib/storefrontlib.module';
-import { provideConfig } from "@spartacus/core";
+import {ConfigModule, I18nConfig, I18nModule, provideConfig} from "@spartacus/core";
 import { customLayoutConfig } from "./config/custom-layout.config";
+import {CustomTranslations} from "../assets/translations/custom-translations";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
     imports: [
+      ConfigModule.withConfig({
+        backend: {
+          occ: {
+            endpoints: {
+              product: {
+                default: 'products/${productCode}?fields=FULL'
+              }
+            }
+          }
+        },
+      }),
+      ConfigModule.withConfig({
+        i18n: {
+          resources: CustomTranslations,
+          fallbackLang: 'en'
+        }
+      } as I18nConfig),
+      I18nModule,
         BrowserModule,
         OutletModule,
         HttpClientModule,
@@ -24,9 +43,10 @@ import { customLayoutConfig } from "./config/custom-layout.config";
         EffectsModule.forRoot([]),
         SpartacusModule,
         StorefrontlibModule,
+
     ],
   providers: [
-    provideConfig(customLayoutConfig)
+    provideConfig(customLayoutConfig),
   ],
   bootstrap: [AppComponent]
 })
