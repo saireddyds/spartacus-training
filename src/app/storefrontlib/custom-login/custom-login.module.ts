@@ -12,13 +12,13 @@ import {CustomLoginComponent} from "./custom-login/custom-login.component";
     CommonModule
   ],
   providers: [
-    provideConfig(<CmsConfig>{
+   /* provideConfig(<CmsConfig>{
       cmsComponents: {
         ReturningCustomerLoginComponent: {
           component: CustomLoginComponent,
         },
       },
-    }),
+    }),*/
   ],
 })
 export class CustomLoginModule { }
