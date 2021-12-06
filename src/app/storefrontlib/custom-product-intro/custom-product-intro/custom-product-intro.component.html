@@ -1,2 +1,14 @@
-<h2 *ngIf="product$ | async as product">{{ product.name }}</h2>
+<div *ngIf="product$ | async as product">
+ <h2>{{ product.name }}</h2>
+  <h3>{{ product.price.value }}</h3>
+  <h3>{{ product.price.value | emiCal }}</h3>
+  <h3>{{ product.code }}</h3>
+</div>
 <h2 *ngIf="getProduct$ | async as getproduct">{{ getproduct.name }}</h2>
+
+<button [routerLink]="{ cxRoute: ['electronics-spa/en/USD/custom'] } | cxUrl">custom route</button>
+
+<button routerLink="/custom">Customers</button>
+
+
+
